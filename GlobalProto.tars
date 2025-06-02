@@ -1,0 +1,100 @@
+
+/**
+**邮箱系统协议文件
+* 
+**/
+module global
+{
+
+    //消息类型
+    enum E_MESSAGE_TYPE
+    {
+        E_MESSAGE_NONE          = 0,
+        E_MESSAGE_NOTICE        = 1,   //公告
+        E_MESSAGE_JOIN_GAME     = 2,   //牌局请求
+        E_MESSAGE_CLUB_GOLD     = 3,   //俱乐部币
+        E_MESSAGE_MATCH_REWARD  = 4,   //比赛奖励
+        E_MESSAGE_WARN          = 5,   //预警信息
+    };
+
+    struct MessageReq
+    {
+        0 require E_MESSAGE_TYPE iMailType;     //消息类型
+        1 require long lPlayerID;               //用户ID
+        2 optional string sTitle;               //文本标题
+        3 optional string sContent;             //文本内容
+        4 optional long lAmount;                //数量
+        5 optional long lClubID;                //俱乐部ID
+        6 optional string sClubName;            //俱乐部名字
+        7 optional long sPresidentID;           //会长ID
+        8 optional string sRoomID;              //房间号
+        9 optional string sRoomKey;             //牌局ID
+        10 optional string sGameName;           //牌局名称
+        11 optional int iGameType;              //玩法
+        12 optional int iContentType;           //申请类型, 1:发放 2:回收
+        13 require string sMessageIndex;        //消息唯一字符串
+        14 require long lTime;                  //
+    };
+
+    //系统消息应答
+    struct MessageResp
+    {
+        0 require int iResultCode;              //错误码
+    };
+
+    struct UpdateMessageReq
+    {
+        0 require E_MESSAGE_TYPE iMailType;     //消息类型
+        1 require long lPlayerID;
+        2 require string sMessageIndex;
+        3 require int iState; // 1：同意  2：拒绝
+    };
+
+    struct UpdateMessageResp
+    {
+        0 require int iResultCode;              //错误码
+    };
+
+    //红点DB信息
+    struct RedDotInfo
+    {
+        0 require int iFlag;      // 类型
+        1 require long lExtend;   // 扩展
+        2 require int iRead;      // 时间戳
+    };
+
+    // 
+    struct CreateSystemActivityReq
+    {
+        0 require int iType;          // 类型
+        1 require string sTitle;      // 标题
+        2 require string sIconLink;   // 预览图链接
+        3 require string sDescript;   // 简介
+        4 require string sContent;    // 内容
+        5 require string sMoreLink;   // 详情链接
+        6 require long lFinishTime;   // 结束时间 
+    };
+
+    struct CreateSystemActivityResp
+    {
+        0 require int iResultCode;   // 错误码
+    };
+
+    struct UpdateSystemActivityReq
+    {
+        0 require long lId;           // ID
+        1 require int iType;          // 类型
+        2 require string sTitle;      // 标题
+        3 require string sIconLink;   // 预览图链接
+        4 require string sDescript;   // 简介
+        5 require string sContent;    // 内容
+        6 require string sMoreLink;   // 详情链接
+        7 require long lFinishTime;   // 结束时间
+    };
+
+    struct UpdateSystemActivityResp
+    {
+        0 require int iResultCode;   // 错误码
+    };
+}; 
+

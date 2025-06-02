@@ -1,0 +1,39 @@
+#include "/home/tarsproto/XGame/Comm/JFGame.tars"
+#include "GlobalProto.tars"
+
+/***
+* 公共服务接口
+*/
+module global
+{
+    interface GlobalServant
+    {
+        // HTTP请求处理接口
+        int doRequest(vector<byte> reqBuf, map<string, string> extraInfo, out vector<byte> rspBuf);
+
+        // TCP请求处理接口
+        int onRequest(long lUin, string sMsgPack, string sCurServrantAddr, JFGame::TClientParam stClientParam, JFGame::UserBaseInfoExt stUserBaseInfo);
+
+        //产生消息
+        int genMessage(global::MessageReq req, out global::MessageResp resp);
+
+        //停服消息
+        int serverUpdateMessage(long beginTime, long endTime, string title, string data);
+
+        //更新消息
+        int updateMessage(global::UpdateMessageReq req, out global::UpdateMessageResp resp);
+
+        // 创建活动
+        int createSystemActivity(global::CreateSystemActivityReq req, out global::CreateSystemActivityResp resp);
+
+        // 更新活动
+        int updateSystemActivity(global::UpdateSystemActivityReq req, out global::UpdateSystemActivityResp resp);
+
+        //检查好友
+        int checkFriend(long lUin, long lFriendID);
+
+        //获取备注
+        string getRemark(long lUin, long lRemarkID);
+
+    };
+}; 
