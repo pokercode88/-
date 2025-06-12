@@ -1,6 +1,6 @@
 德州扑克源码，德州游戏源码，
 hhpoke源码，wpk，德州扑克源码，德州私人局，朋友局游戏，产品精美代码质量可靠（此代码是成功商业化的源码，不是网上那些外包团队做的项目代码）。内有SNG，MTT，经典德州，大菠萝，短牌等七八种德州玩法，联盟，语音聊天；TG：@alibabama401或邮箱：ttpoker40@gmail.com
-如果你的银子买不起全套，也可以单独出售客户端或服务器的源码以便学习参考；
+；；如果你的银子买不起全套，也可以单独出售客户端或服务器的源码以便学习参考；
 
 ![04](https://github.com/user-attachments/assets/a8ee6f68-5d7b-459d-8db3-da613da73245)
 ![03](https://github.com/user-attachments/assets/9b258ad2-532c-4d64-bc9a-68671db987fe)
